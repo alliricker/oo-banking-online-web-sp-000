@@ -23,4 +23,11 @@ def execute_transaction
   end
 end
 
+def reverse_transfer
+  if valid? && @status == "complete"
+    receiver.balance = receiver.balance - amount
+    sender.balance = sender.balance + amount
+  end
+end
+
 end
